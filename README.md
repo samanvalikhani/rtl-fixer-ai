@@ -8,10 +8,6 @@
 [![Browsers](https://img.shields.io/badge/Chrome%20%C2%B7%20Edge%20%C2%B7%20Brave-supported-179e8f?style=for-the-badge&logo=googlechrome&logoColor=white)](#)
 [![Permissions](https://img.shields.io/badge/no%20extra%20permissions-storage%20only-f5b840?style=for-the-badge)](#)
 
-<br>
-
-<img src="assets/showcase.svg" alt="قبل و بعد از نصب افزونه" width="92%">
-
 </div>
 
 <br>
