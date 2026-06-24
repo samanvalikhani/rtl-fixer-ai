@@ -60,37 +60,32 @@
 
 ## 🚀 نصب
 
-### روش ۱ — از فروشگاه کروم (ساده‌ترین راه)
+### روش ۱ — نصب‌کننده‌ی خودکار (بدون مراحل دستی)
 
-کافیه توی وب‌استور کروم عبارت **`rtl-fixer-ai`** رو سرچ کنی، یا روی دکمه‌ی زیر بزنی:
+فایل نصب مخصوص سیستم‌عاملت رو از **[Releases](../../releases)** دانلود کن و اجراش کن. مرورگرهای نصب‌شده‌ات (Chrome / Edge / Brave) رو پیدا می‌کنه و افزونه رو خودکار فعال می‌کنه — کافیه بعدش مرورگر رو ببندی و دوباره باز کنی.
 
-<div align="center" dir="ltr">
+| سیستم‌عامل | فایل | اجرا |
+|------------|------|------|
+| ویندوز | `install-windows.bat` | دابل‌کلیک (نیاز به ادمین نداره) |
+| مک | `install-macos.command` | دابل‌کلیک (رمز مدیر می‌خواد) |
+| لینوکس | `install-linux.sh` | `bash install-linux.sh` (با sudo) |
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-rtl--fixer--ai-2fd4c1?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/search/rtl-fixer-ai)
+برای حذف هم `uninstall-windows.bat` (یا حذف Policy مرورگر) هست.
 
-</div>
-
-۱. وارد صفحه‌ی افزونه شو.
-۲. روی **Add to Chrome / افزودن به کروم** بزن.
-۳. تمام — آیکون ↹ کنار نوار آدرس ظاهر می‌شه. یه چت باز کن و لذت ببر.
+> ℹ️ این روش از مکانیزم رسمی *Enterprise Policy* استفاده می‌کنه (چون از کروم ۱۳۷ به بعد نصب خودکار افزونه‌ی بیرونِ استور فقط از این راه ممکنه). به همین خاطر افزونه «مدیریت‌شده» نشون داده می‌شه و چون اسکریپت تنظیمات مرورگر رو می‌نویسه، ممکنه ویندوز/آنتی‌ویروس یک‌بار هشدار «Run anyway» بده.
+>
+> ⚠️ نصب‌کننده فقط **بعد از راه‌اندازی توزیع** کار می‌کنه (آپلود `rtl-fixer.crx` به Releases + جایگزینی `REPLACE_USER/REPLACE_REPO`). برای تستِ سریعِ خودِ افزونه روی سیستم خودت، از **روش ۲** استفاده کن.
 
 ---
 
 ### روش ۲ — نصب دستی (Load unpacked)
 
-اگه می‌خوای آخرین نسخه رو مستقیم نصب کنی:
-
-۱. آخرین `rtl-fixer.zip` رو از بخش **[Releases](../../releases)** دانلود و از حالت فشرده خارج کن.
-۲. توی مرورگر برو به:
-
-```
-chrome://extensions
-```
-
+۱. آخرین `rtl-fixer.zip` رو از **[Releases](../../releases)** دانلود و از حالت فشرده خارج کن.
+۲. توی مرورگر برو به `chrome://extensions`.
 ۳. گوشه‌ی بالا، **Developer mode** رو روشن کن.
-۴. روی **Load unpacked** بزن و پوشه‌ی `rtl-fixer` رو انتخاب کن (همونی که `manifest.json` مستقیم داخلشه).
+۴. روی **Load unpacked** بزن و پوشه‌ی **`extension`** رو انتخاب کن (همونی که `manifest.json` مستقیم داخلشه).
 
-> روی **Edge** و **Brave** هم دقیقاً همین مراحله. برای **Firefox** از مسیر `about:debugging` و گزینه‌ی *Load Temporary Add-on* استفاده کن.
+> روی **Edge** و **Brave** هم دقیقاً همین مراحله. برای **Firefox** از `about:debugging` و *Load Temporary Add-on* استفاده کن.
 
 <br>
 
@@ -137,9 +132,20 @@ chrome://extensions
 
 <br>
 
+## 🛠 راه‌اندازی برای توزیع (برای خودم)
+
+برای اینکه نصب‌کننده‌ی خودکار کار کند:
+۱. در `updates.xml` و سه فایل `installer/*`، عبارت `REPLACE_USER/REPLACE_REPO` را با مخزن گیت‌هاب جایگزین کن.
+۲. فایل‌های `rtl-fixer.crx` و `installer/*` را به‌عنوان دارایی یک **Release** آپلود کن، و `updates.xml` را در ریشه‌ی مخزن نگه دار.
+۳. نسخه‌ی بعدی: `node pack.mjs` (با همان `dist/key.pem`، شناسه ثابت می‌ماند) و شماره‌ی `version` را در `updates.xml` به‌روز کن.
+
+> 🔑 فایل `dist/key.pem` کلید امضاست؛ هیچ‌وقت در مخزن عمومی نگذار (در `.gitignore` هست).
+
+<br>
+
 ## 📄 لایسنس
 
-کدِ افزونه آزاد و متن‌باز است. فونت **Vazirmatn** تحت لایسنس [SIL OFL](fonts/OFL.txt) همراه افزونه توزیع شده.
+کدِ افزونه آزاد و متن‌باز است. فونت **Vazirmatn** تحت لایسنس [SIL OFL](extension/fonts/OFL.txt) همراه افزونه توزیع شده.
 
 </div>
 
