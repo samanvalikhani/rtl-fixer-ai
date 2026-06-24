@@ -1,0 +1,75 @@
+/* راست‌چین‌ساز — styles */
+
+.rtlfix-rtl {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+ul.rtlfix-rtl, ol.rtlfix-rtl { padding-right: 1.5em; padding-left: 0; }
+[dir="auto"][data-rtlfix-input] { text-align: start; }
+
+/* Typography (applied only when the matching html class is present) */
+html.rtlfix-font .rtlfix-rtl,
+html.rtlfix-font [data-rtlfix-input] {
+  font-family: 'RTLFixer Vazirmatn', system-ui, Tahoma, sans-serif !important;
+}
+html.rtlfix-size .rtlfix-rtl { font-size: var(--rtlfix-size) !important; }
+html.rtlfix-lh   .rtlfix-rtl { line-height: var(--rtlfix-lh) !important; }
+
+/* Floating selection toolbar */
+#rtlfix-ui.rtlfix-bar {
+  position: absolute;
+  z-index: 2147483647;
+  display: none;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 10px;
+  background: #1b1e26;
+  border: 1px solid #2c3140;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+  direction: ltr;
+}
+#rtlfix-ui.rtlfix-bar.show { display: flex; }
+#rtlfix-ui.rtlfix-bar button {
+  all: unset;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  border-radius: 7px;
+  line-height: 1;
+}
+#rtlfix-ui.rtlfix-bar button:hover { background: #2a2f3b; }
+
+/* ===== v2.2 feature styles ===== */
+.rtlfix-bionic{font-weight:700}
+
+html.rtlfix-focus main{max-width:860px!important;margin-inline:auto!important}
+html.rtlfix-focus nav,html.rtlfix-focus aside{opacity:.4;transition:opacity .25s}
+html.rtlfix-focus nav:hover,html.rtlfix-focus aside:hover{opacity:1}
+
+::highlight(rtlfix-search){background:#f5b840;color:#111}
+
+.rtlfix-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(12px);
+  z-index:2147483647;background:#1b1e26;color:#fff;border:1px solid #2c3140;border-radius:11px;
+  padding:9px 15px;font:500 13px Tahoma,sans-serif;direction:rtl;opacity:0;pointer-events:none;
+  transition:.22s;box-shadow:0 8px 26px rgba(0,0,0,.4)}
+.rtlfix-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.rtlfix-counter{position:fixed;left:14px;bottom:14px;z-index:2147483646;background:#1b1e26;color:#c9cee0;
+  border:1px solid #2c3140;border-radius:9px;padding:5px 10px;font:500 11px Tahoma,sans-serif;direction:rtl;
+  opacity:0;pointer-events:none;transition:.18s}
+.rtlfix-counter.show{opacity:.92}
+
+.rtlfix-search{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-12px);z-index:2147483647;
+  display:none;align-items:center;gap:6px;background:#171a21;border:1px solid #2c3140;border-radius:13px;
+  padding:7px 9px;box-shadow:0 10px 34px rgba(0,0,0,.45);direction:rtl}
+.rtlfix-search.show{display:flex;transform:translateX(-50%) translateY(0)}
+.rtlfix-search input{all:unset;width:190px;color:#eaecf2;font:14px Tahoma,sans-serif;padding:4px 8px;
+  background:#0e1016;border-radius:8px}
+.rtlfix-search .cnt{font:12px Tahoma,sans-serif;color:#8a92a3;min-width:42px;text-align:center;direction:ltr}
+.rtlfix-search button{all:unset;cursor:pointer;width:28px;height:28px;display:grid;place-items:center;
+  border-radius:7px;color:#c9cee0;font-size:12px}
+.rtlfix-search button:hover{background:#252a35}

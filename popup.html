@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="popup.css" />
+<title>راست‌چین‌ساز</title>
+</head>
+<body>
+<div class="app">
+
+  <div class="brand">
+    <div class="mark">↹</div>
+    <div class="word"><h1>راست‌چین‌ساز</h1><span class="ver">v2.2</span></div>
+  </div>
+
+  <!-- ============ SETTINGS ============ -->
+  <main class="screen" id="screen-settings">
+
+    <section class="hero">
+      <div class="preview" id="preview">
+        <p class="sample" id="sample">این یک نمونه از متن فارسی است؛ همین‌جا می‌بینی تنظیماتت چطور دیده می‌شوند.</p>
+      </div>
+      <div class="powerrow">
+        <div class="status" id="status">
+          <span class="dot"></span>
+          <div><b id="statusText">فعال</b><small id="statusSub">راست‌چین روشن است</small></div>
+        </div>
+        <label class="switch lg"><input type="checkbox" id="enabled"><span class="slider"></span></label>
+      </div>
+      <button class="sitechip" id="siteChip">
+        <span class="h" id="siteHost">—</span>
+        <span class="s" id="siteState">—</span>
+      </button>
+    </section>
+
+    <div class="eyebrow">تایپوگرافی</div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7V5h14v2M12 5v14M9 19h6"/></svg></div>
+      <div class="txt"><b>فونت وزیرمتن</b><span>فونت فارسی تمیز، آفلاین</span></div>
+      <label class="control switch"><input type="checkbox" id="font"><span class="slider"></span></label>
+    </div>
+    <div class="card col">
+      <div class="cardhead">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V6l5 10V6M14 6h6M17 6v10"/></svg></div>
+        <div class="txt"><b>اندازه‌ی متن</b></div>
+        <label class="control switch"><input type="checkbox" id="sizeOn"><span class="slider"></span></label>
+      </div>
+      <div class="sld"><input type="range" id="size" min="14" max="24" step="1" value="17"><span class="val" id="sizeVal">۱۷</span></div>
+    </div>
+    <div class="card col">
+      <div class="cardhead">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M3 12h18M3 19h18"/></svg></div>
+        <div class="txt"><b>فاصله‌ی خطوط</b></div>
+        <label class="control switch"><input type="checkbox" id="lhOn"><span class="slider"></span></label>
+      </div>
+      <div class="sld"><input type="range" id="lh" min="14" max="26" step="1" value="19"><span class="val" id="lhVal">۱٫۹</span></div>
+    </div>
+
+    <div class="eyebrow">تایپ فارسی</div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></div>
+      <div class="txt"><b>اصلاح ک و ی</b><span>تبدیل خودکار ك→ک و ي→ی</span></div>
+      <label class="control switch"><input type="checkbox" id="typingFix"><span class="slider"></span></label>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="7" rx="2"/><path d="M7 12.5h10"/></svg></div>
+      <div class="txt"><b>نیم‌فاصله</b><span>با کلید Shift + Space</span></div>
+      <label class="control switch"><input type="checkbox" id="halfSpace"><span class="slider"></span></label>
+    </div>
+    <div class="card col">
+      <div class="cardhead">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8a3 3 0 116 0v8M5 16h6"/></svg></div>
+        <div class="txt"><b>تبدیل ارقام</b><span>نمایش اعداد در متن پیام‌ها</span></div>
+      </div>
+      <div class="seg" id="digits">
+        <button data-v="off" class="active">خاموش</button>
+        <button data-v="fa2en">۱۲۳ ← 123</button>
+        <button data-v="en2fa">123 ← ۱۲۳</button>
+      </div>
+    </div>
+
+    <div class="eyebrow">ابزارها</div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 7-6 2-2 6z"/></svg></div>
+      <div class="txt"><b>نوار انتخاب متن</b><span>صدا · کپی · ذخیره روی متن</span></div>
+      <label class="control switch"><input type="checkbox" id="selectionToolbar"><span class="slider"></span></label>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+      <div class="txt"><b>شورتکات‌ها</b><span>R خاموش‌وروشن·F جستجو·N مرتب·D دیکته·G تمرکز (با Alt)</span></div>
+      <label class="control switch"><input type="checkbox" id="shortcuts"><span class="slider"></span></label>
+    </div>
+
+    <div class="eyebrow">خواندن و تمرکز</div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/></svg></div>
+      <div class="txt"><b>حالت تمرکز</b><span>ستون گفتگو پهن‌تر و وسط‌چین</span></div>
+      <label class="control switch"><input type="checkbox" id="focusMode"><span class="slider"></span></label>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9a3 3 0 010 6H4zM4 11h11a3 3 0 010 6H4M4 5v12"/></svg></div>
+      <div class="txt"><b>پررنگ‌خوانی</b><span>برجسته‌کردن ابتدای واژه‌ها (آزمایشی)</span></div>
+      <label class="control switch"><input type="checkbox" id="bionic"><span class="slider"></span></label>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
+      <div class="txt"><b>شمارنده‌ی متن</b><span>تعداد کلمه/نویسه‌ی کادر تایپ</span></div>
+      <label class="control switch"><input type="checkbox" id="counter"><span class="slider"></span></label>
+    </div>
+
+    <div class="eyebrow">خروجی گفتگو</div>
+    <div class="expgrid">
+      <button class="exp" id="expMd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Markdown</button>
+      <button class="exp" id="expTxt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>متن</button>
+      <button class="exp" id="expPdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>PDF</button>
+    </div>
+    <p class="hint" id="expHint"></p>
+  </main>
+
+  <!-- ============ BOOKMARKS ============ -->
+  <main class="screen" id="screen-marks" hidden>
+    <div id="marksList"></div>
+    <div class="empty" id="marksEmpty" hidden>
+      <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
+      <p>هنوز چیزی ذخیره نکرده‌ای.<br>روی صفحه متنی را انتخاب کن و 🔖 را بزن.</p>
+    </div>
+  </main>
+
+  <!-- ============ PROMPTS ============ -->
+  <main class="screen" id="screen-prompts" hidden>
+    <div class="addbox">
+      <input type="text" id="pName" placeholder="نام پرامپت (اختیاری)">
+      <textarea id="pText" rows="3" placeholder="متن پرامپت را اینجا بنویس…"></textarea>
+      <button class="exp" id="pAdd" style="width:100%;border-color:var(--turq-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>افزودن</button>
+    </div>
+    <div id="promptsList"></div>
+    <div class="empty" id="promptsEmpty" hidden>
+      <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+      <p>پرامپتی ذخیره نکرده‌ای.<br>یکی بساز و با یک کلیک توی کادر چت درجش کن.</p>
+    </div>
+  </main>
+
+  <!-- ============ ABOUT ============ -->
+  <main class="screen" id="screen-about" hidden>
+    <div class="about">
+      <div class="bigmark">↹</div>
+      <h3>راست‌چین‌ساز هوش مصنوعی</h3>
+      <p class="tag">تجربه‌ی فارسیِ تمیز در چت‌بات‌های هوش مصنوعی — راست‌چین، فونت، تایپ، صدا و خروجی.</p>
+
+      <div class="credit">
+        <div class="by">طراحی و توسعه</div>
+        <div class="name">سامان <span class="glow">ولی‌خانی</span></div>
+        <a class="tg" href="https://t.me/samanvalikhani" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3L2 11l6 2 2 6 4-4 5 4z"/></svg>
+          پیام در تلگرام · @samanvalikhani
+        </a>
+      </div>
+      <div class="made">Made with care · v2.2.0</div>
+    </div>
+  </main>
+
+  <!-- ============ TAB BAR ============ -->
+  <nav class="tabbar">
+    <button class="active" data-screen="settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1l2-1.6-2-3.5-2.4 1a7 7 0 00-1.7-1L14.4 2h-4l-.4 2.4a7 7 0 00-1.7 1l-2.4-1-2 3.5L4 11a7 7 0 000 2l-2 1.6 2 3.5 2.4-1a7 7 0 001.7 1l.4 2.4h4l.4-2.4a7 7 0 001.7-1l2.4 1 2-3.5-2-1.6c.1-.3.1-.7.1-1z"/></svg>
+      تنظیمات
+    </button>
+    <button data-screen="marks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+      ذخیره‌ها
+    </button>
+    <button data-screen="prompts">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+      پرامپت‌ها
+    </button>
+    <button data-screen="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      درباره
+    </button>
+  </nav>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
